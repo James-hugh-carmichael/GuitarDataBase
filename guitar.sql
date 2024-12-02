@@ -119,7 +119,15 @@ INSERT INTO fretboard (chord_id, string_number, fret_number, is_open) VALUES
 INSERT INTO scales (name, formula, description) VALUES
 ('Major Scale', 'W - W - H - W - W - W - H', 'The major scale is a seven-note scale characterized by a pattern of whole and half steps. It has a happy, bright sound.'),
 ('Minor Scale', 'W - H - W - W - H - W - W', 'The natural minor scale is a seven-note scale that is more somber or melancholic in nature.'),
-('Pentatonic Scale', 'W - W - W+H - W - W+H', 'A five-note scale used in various genres, often blues, characterized by its simplicity.');
+('Pentatonic Scale', 'W - W - W+H - W - W+H', 'A five-note scale used in various genres, often blues, characterized by its simplicity.'),
+('Blues Scale', 'W+H - W - H - H - W+H - W', 'A six-note scale that includes the minor pentatonic scale and the flat fifth.'), 
+('Dorian Scale', 'W - H - W - W - W - H - W', 'A seven-note scale similar to the natural minor scale, but with a raised sixth.'), 
+('Phrygian Scale', 'H - W - W - W - H - W - W', 'A seven-note scale that gives a Spanish or Eastern sound.'), 
+('Lydian Scale', 'W - W - W - H - W - W - H', 'A seven-note scale similar to the major scale, but with a raised fourth.'), 
+('Mixolydian Scale', 'W - W - H - W - W - H - W', 'A seven-note scale similar to the major scale, but with a flat seventh.'), 
+('Locrian Scale', 'H - W - W - H - W - W - W', 'A seven-note scale that has a diminished sound, with a flat second, third, fifth, sixth, and seventh.'), 
+('Harmonic Minor Scale', 'W - H - W - W - H - W+H - H', 'A seven-note scale with a unique, exotic sound, featuring a raised seventh.'), 
+('Melodic Minor Scale', 'W - H - W - W - W - W - H');
 
 -- Major Scale (C Major as example) with pattern on fretboard
 INSERT INTO scale_patterns (scale_id, string_number, fret_number, is_open) VALUES
@@ -140,3 +148,75 @@ INSERT INTO scale_patterns (scale_id, string_number, fret_number, is_open) VALUE
 (2, 3, 2, FALSE),    
 (2, 2, 1, FALSE),    
 (2, 1, 0, TRUE);     
+
+-- Blues Scale (A Blues as example) 
+INSERT INTO scale_patterns (scale_id, string_number, fret_number, is_open) VALUES 
+(3, 6, 5, FALSE),
+(3, 5, 8, FALSE), 
+(3, 4, 5, FALSE),
+(3, 4, 6, FALSE), 
+(3, 3, 5, FALSE), 
+(3, 3, 7, FALSE); 
+
+-- Dorian Scale (D Dorian as example)
+INSERT INTO scale_patterns (scale_id, string_number, fret_number, is_open) VALUES
+(4, 6, 10, FALSE),
+(4, 5, 12, FALSE),
+(4, 4, 9, FALSE),
+(4, 4, 12, FALSE),
+(4, 3, 9, FALSE),
+(4, 3, 11, FALSE);
+
+-- Phrygian Scale (E Phrygian as example)
+INSERT INTO scale_patterns (scale_id, string_number, fret_number, is_open) VALUES
+(5, 6, 12, FALSE),
+(5, 5, 11, FALSE),
+(5, 4, 9, FALSE),
+(5, 4, 12, FALSE),
+(5, 3, 9, FALSE),
+(5, 2, 10, FALSE);
+
+-- Lydian Scale (F Lydian as example)
+INSERT INTO scale_patterns (scale_id, string_number, fret_number, is_open) VALUES
+(6, 6, 13, FALSE),
+(6, 5, 15, FALSE),
+(6, 4, 12, FALSE),
+(6, 4, 14, FALSE),
+(6, 3, 12, FALSE),
+(6, 2, 13, FALSE);
+
+-- Mixolydian Scale (G Mixolydian as example)
+INSERT INTO scale_patterns (scale_id, string_number, fret_number, is_open) VALUES
+(7, 6, 15, FALSE),
+(7, 5, 14, FALSE),
+(7, 4, 12, FALSE),
+(7, 4, 14, FALSE),
+(7, 3, 12, FALSE),
+(7, 2, 15, FALSE);
+
+-- Locrian Scale (B Locrian as example)
+INSERT INTO scale_patterns (scale_id, string_number, fret_number, is_open) VALUES
+(8, 6, 7, FALSE),
+(8, 5, 6, FALSE),
+(8, 4, 5, FALSE),
+(8, 4, 9, FALSE),
+(8, 3, 5, FALSE),
+(8, 2, 7, FALSE);
+
+-- Harmonic Minor Scale (A Harmonic Minor as example)
+INSERT INTO scale_patterns (scale_id, string_number, fret_number, is_open) VALUES
+(9, 6, 5, FALSE),
+(9, 5, 7, FALSE),
+(9, 4, 5, FALSE),
+(9, 4, 8, FALSE),
+(9, 3, 5, FALSE),
+(9, 2, 6, FALSE);
+
+-- Melodic Minor Scale (A Melodic Minor as example)
+INSERT INTO scale_patterns (scale_id, string_number, fret_number, is_open) VALUES
+(10, 6, 5, FALSE),
+(10, 5, 7, FALSE),
+(10, 4, 5, FALSE),
+(10, 4, 7, FALSE),
+(10, 3, 6, FALSE),
+(10, 2, 8, FALSE);
