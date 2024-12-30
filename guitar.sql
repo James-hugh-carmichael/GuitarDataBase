@@ -31,6 +31,44 @@ CREATE TABLE scale_patterns (
     FOREIGN KEY (scale_id) REFERENCES scales(scale_id)
 );
 
+CREATE TABLE tuning (
+    tuning_id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(50) NOT NULL,      
+    string_6_note VARCHAR(3),      -- Note of the 6th string
+    string_5_note VARCHAR(3),      -- Note of the 5th string
+    string_4_note VARCHAR(3),      -- Note of the 4th string
+    string_3_note VARCHAR(3),      -- Note of the 3rd string
+    string_2_note VARCHAR(3),      -- Note of the 2nd string
+    string_1_note VARCHAR(3)       -- Note of the 1st string
+);
+
+
+INSERT INTO tuning (name, string_6_note, string_5_note, string_4_note, string_3_note, string_2_note, string_1_note) VALUES
+('Standard E', 'E', 'A', 'D', 'G', 'B', 'E'), 
+('Drop D', 'D', 'A', 'D', 'G', 'B', 'E'), 
+('Open G', 'D', 'G', 'D', 'G', 'B', 'D'), 
+('Open D', 'D', 'A', 'D', 'F#', 'A', 'D'), 
+('DADGAD', 'D', 'A', 'D', 'G', 'A', 'D'), 
+('Open E', 'E', 'B', 'E', 'G#', 'B', 'E'), 
+('Open A', 'E', 'A', 'E', 'A', 'C#', 'E'), 
+('Half Step Down', 'Eb', 'Ab', 'Db', 'Gb', 'Bb', 'Eb'), 
+('Full Step Down', 'D', 'G', 'C', 'F', 'A', 'D'), 
+('Drop C', 'C', 'G', 'C', 'F', 'A', 'D'), 
+('Drop C#', 'C#', 'G#', 'C#', 'F#', 'A#', 'D#'), 
+('Drop Bb', 'Bb', 'F', 'Bb', 'Eb', 'G', 'C'), 
+('Drop A', 'A', 'E', 'A', 'D', 'F#', 'B'), 
+('Drop A#', 'A#', 'F#', 'A#', 'D#', 'G#', 'C#'), 
+('Drop G', 'G', 'D', 'G', 'C', 'E', 'A'), 
+('Drop F', 'F', 'C', 'F', 'A#', 'D', 'G'), 
+('Drop E', 'E', 'B', 'E', 'A', 'D', 'G'), 
+('Drop D#', 'D#', 'A#', 'D#', 'G#', 'C#', 'F#'), 
+('Drop C#', 'C#', 'G#', 'C#', 'F#', 'B', 'E'), 
+('Drop B', 'B', 'F#', 'B', 'E', 'G#', 'C#'), 
+('Double Drop D', 'D', 'A', 'D', 'G', 'B', 'D');
+('Drop B', 'B', 'F#', 'B', 'E', 'G#', 'C#'), 
+('Double Drop D', 'D', 'A', 'D', 'G', 'B', 'D');
+
+
 INSERT INTO chords (name, chord_type, formula, description) VALUES
 ('C Major', 'Major', 'C - E - G', 'A bright, happy chord, made of the root, major third, and perfect fifth.'),
 ('A Minor', 'Minor', 'A - C - E', 'A sadder chord, made of the root, minor third, and perfect fifth.'),
@@ -42,6 +80,14 @@ INSERT INTO chords (name, chord_type, formula, description) VALUES
 ('D Minor', 'Minor', 'D - F - A', 'A melancholic chord made from the root, minor third, and perfect fifth.'),
 ('B Minor', 'Minor', 'B - D - F#', 'A darker chord with a somber quality, created from the root, minor third, and perfect fifth.'),
 ('F# Minor', 'Minor', 'F# - A - C#', 'A sad, haunting chord made of the root, minor third, and perfect fifth.');
+('C Minor', 'Minor', 'C - Eb - G', 'A somber chord made of the root, minor third, and perfect fifth.'),
+('E Major', 'Major', 'E - G# - B', 'A bright and resonant chord built from the root, major third, and perfect fifth.'),
+('A Major', 'Major', 'A - C# - E', 'A bold chord with a warm sound, made of the root, major third, and perfect fifth.'),
+('G Minor', 'Minor', 'G - Bb - D', 'A melancholic chord with a haunting quality.'),
+('D# Major', 'Major', 'D# - G - A#', 'A sharp and clear chord, made of the root, major third, and perfect fifth.'),
+('F# Major', 'Major', 'F# - A# - C#', 'A strong chord with a bright tone.'),
+('F Minor', 'Minor', 'F - Ab - C', 'A dramatic and dark chord.'),
+('D# Minor', 'Minor', 'D# - F# - A#', 'A soft and melancholic chord.')
 
 -- For C Major chord (C - E - G)
 INSERT INTO fretboard (chord_id, string_number, fret_number, is_open) VALUES
@@ -115,6 +161,79 @@ INSERT INTO fretboard (chord_id, string_number, fret_number, is_open) VALUES
 (10, 3, 2, FALSE),   -- 3rd string, 2nd fret (F#)
 (10, 2, 2, FALSE),   -- 2nd string, 2nd fret (A)
 (10, 1, 2, FALSE);   -- 1st string, 2nd fret (C#)
+
+-- C Minor (Cm)
+INSERT INTO fretboard (chord_id, string_number, fret_number, is_open) VALUES
+(11, 6, 3, FALSE),    -- 6th string, 3rd fret (C)
+(11, 5, 3, FALSE),    -- 5th string, 3rd fret (G)
+(11, 4, 1, FALSE),    -- 4th string, 1st fret (Eb)
+(11, 3, 0, TRUE),     -- 3rd string open (G)
+(11, 2, 1, FALSE),    -- 2nd string, 1st fret (C)
+(11, 1, 3, FALSE);    -- 1st string, 3rd fret (Eb)
+
+-- E Major (E)
+INSERT INTO fretboard (chord_id, string_number, fret_number, is_open) VALUES
+(12, 6, 0, TRUE),    -- 6th string open (E)
+(12, 5, 2, FALSE),   -- 5th string, 2nd fret (B)
+(12, 4, 2, FALSE),   -- 4th string, 2nd fret (E)
+(12, 3, 1, FALSE),   -- 3rd string, 1st fret (G#)
+(12, 2, 0, TRUE),    -- 2nd string open (B)
+(12, 1, 0, TRUE);    -- 1st string open (E)
+
+-- A Major (A)
+INSERT INTO fretboard (chord_id, string_number, fret_number, is_open) VALUES
+(13, 6, 0, TRUE),    -- 6th string open (E)
+(13, 5, 0, TRUE),    -- 5th string open (A)
+(13, 4, 2, FALSE),   -- 4th string, 2nd fret (E)
+(13, 3, 2, FALSE),   -- 3rd string, 2nd fret (A)
+(13, 2, 2, FALSE),   -- 2nd string, 2nd fret (C#)
+(13, 1, 0, TRUE);    -- 1st string open (E)
+
+-- G Minor (Gm)
+INSERT INTO fretboard (chord_id, string_number, fret_number, is_open) VALUES
+(14, 6, 3, FALSE),    -- 6th string, 3rd fret (G)
+(14, 5, 5, FALSE),    -- 5th string, 5th fret (D)
+(14, 4, 3, FALSE),    -- 4th string, 3rd fret (G)
+(14, 3, 3, FALSE),    -- 3rd string, 3rd fret (Bb)
+(14, 2, 3, FALSE),    -- 2nd string, 3rd fret (D)
+(14, 1, 3, FALSE);    -- 1st string, 3rd fret (Bb)
+
+-- D# Major (D#)
+INSERT INTO fretboard (chord_id, string_number, fret_number, is_open) VALUES
+(15, 6, 11, FALSE),   -- 6th string, 11th fret (D#)
+(15, 5, 8, FALSE),    -- 5th string, 8th fret (A#)
+(15, 4, 8, FALSE),    -- 4th string, 8th fret (D#)
+(15, 3, 8, FALSE),    -- 3rd string, 8th fret (G)
+(15, 2, 8, FALSE),    -- 2nd string, 8th fret (A#)
+(15, 1, 8, FALSE);    -- 1st string, 8th fret (D#)
+
+-- F# Major (F#)
+INSERT INTO fretboard (chord_id, string_number, fret_number, is_open) VALUES
+(16, 6, 2, FALSE),    -- 6th string, 2nd fret (F#)
+(16, 5, 4, FALSE),    -- 5th string, 4th fret (C#)
+(16, 4, 4, FALSE),    -- 4th string, 4th fret (F#)
+(16, 3, 3, FALSE),    -- 3rd string, 3rd fret (A#)
+(16, 2, 2, FALSE),    -- 2nd string, 2nd fret (F#)
+(16, 1, 2, FALSE);    -- 1st string, 2nd fret (C#)
+
+-- F Minor (Fm)
+INSERT INTO fretboard (chord_id, string_number, fret_number, is_open) VALUES
+(17, 6, 1, FALSE),    -- 6th string, 1st fret (F)
+(17, 5, 3, FALSE),    -- 5th string, 3rd fret (C)
+(17, 4, 3, FALSE),    -- 4th string, 3rd fret (F)
+(17, 3, 1, FALSE),    -- 3rd string, 1st fret (Ab)
+(17, 2, 1, FALSE),    -- 2nd string, 1st fret (C)
+(17, 1, 1, FALSE);    -- 1st string, 1st fret (F)
+
+-- D# Minor (D#m)
+INSERT INTO fretboard (chord_id, string_number, fret_number, is_open) VALUES
+(18, 6, 11, FALSE),   -- 6th string, 11th fret (D#)
+(18, 5, 6, FALSE),    -- 5th string, 6th fret (A#)
+(18, 4, 8, FALSE),    -- 4th string, 8th fret (F#)
+(18, 3, 8, FALSE),    -- 3rd string, 8th fret (D#)
+(18, 2, 7, FALSE),    -- 2nd string, 7th fret (F#)
+(18, 1, 6, FALSE);    -- 1st string, 6th fret (A#)
+
 
 INSERT INTO scales (name, formula, description) VALUES
 ('Major Scale', 'W - W - H - W - W - W - H', 'The major scale is a seven-note scale characterized by a pattern of whole and half steps. It has a happy, bright sound.'),
