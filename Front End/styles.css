@@ -1,0 +1,77 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: #f4f4f9;
+}
+
+.container {
+    text-align: center;
+    padding: 20px;
+    background: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    width: 90%;
+    max-width: 600px;
+}
+
+.controls {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin: 10px 0 5px;
+    font-weight: bold;
+}
+
+select {
+    padding: 5px;
+    font-size: 1rem;
+    margin-bottom: 10px;
+    width: 100%;
+    max-width: 200px;
+}
+
+.fretboard {
+    display: grid;
+    grid-template-rows: repeat(6, 40px);
+    gap: 5px;
+    background: #ccc;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.string {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #eee;
+    border-radius: 5px;
+    padding: 5px 10px;
+}
+
+.fret {
+    width: 40px;
+    height: 30px;
+    border: 1px solid #999;
+    border-radius: 3px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #fff;
+}
+
+.fret.active {
+    background: #f56a79;
+    color: #fff;
+}
+
+.fret.open {
+    background: #6abf69;
+    color: #fff;
+}
